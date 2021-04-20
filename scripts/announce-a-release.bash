@@ -63,9 +63,9 @@ set -o nounset
 PUSH_TO="https://${RELEASE_TOKEN}@github.com/${GITHUB_REPOSITORY}.git"
 
 # Extract version from tag reference
-# Tag ref version: "refs/tags/announce-1.0.0"
+# Tag ref version: "refs/tags/release-1.0.0"
 # Version: "1.0.0"
-VERSION="${GITHUB_REF/refs\/tags\/announce-/}"
+VERSION="${GITHUB_REF/refs\/tags\/release-/}"
 
 # Prepare release notes
 echo -e "\e[34mPreparing to update GitHub release notes...\e[0m"
@@ -124,8 +124,8 @@ See the [release notes](https://github.com/${GITHUB_REPOSITORY}/releases/tag/${V
 curl -F token="${SLACK_TOKEN}" -F channel="alerts-releases" -F text="${message}" https://slack.com/api/chat.postMessage
 
 # delete announce-VERSION tag
-echo -e "\e[34mDeleting no longer needed remote tag announce-${VERSION}\e[0m"
-git push --delete "${PUSH_TO}" "announce-${VERSION}"
+#echo -e "\e[34mDeleting no longer needed remote tag announce-${VERSION}\e[0m"
+#git push --delete "${PUSH_TO}" "announce-${VERSION}"
 
 # This doesn't account for the default branch changing commit. It assumes we
 # are HEAD or can otherwise push without issue.
