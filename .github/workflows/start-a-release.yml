@@ -13,7 +13,7 @@ jobs:
         with:
           ref: main
       - name: Start
-        uses: dashdash/release-action@release-1.2.0
+        uses: dashdash/release-action@1.2.0
         with:
           step: start-a-release
           git_user_name: "Release Bot"
