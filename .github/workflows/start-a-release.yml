@@ -13,7 +13,7 @@ jobs:
         with:
           ref: main
       - name: Start
-        uses: dashdash/release-action@1.2.7
+        uses: dashdash/release-action@1.2.9
         with:
           step: start-a-release
           git_user_name: "Release Bot"
@@ -29,7 +29,7 @@ jobs:
         with:
           ref: main
       - name: Announce
-        uses: dashdash/release-action@1.2.7
+        uses: dashdash/release-action@1.2.9
         with:
           step: announce-a-release
           git_user_name: "Release Bot"
