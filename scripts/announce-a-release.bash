@@ -87,7 +87,6 @@ echo -e $VERSION
 changelog=$(changelog-tool get "${VERSION}")
 echo -e $changelog
 body="${release_notes}${changelog}"
-echo -e "here"
 
 jsontemplate="
 {
@@ -122,7 +121,7 @@ fi
 message="
 Version ${VERSION} of ${GITHUB_REPOSITORY} has been released.
 
-See the [release notes](https://github.com/${GITHUB_REPOSITORY}/releases/tag/${VERSION}) for more details.
+See the release notes https://github.com/${GITHUB_REPOSITORY}/releases/tag/${VERSION} for more details.
 "
 
 curl -F token="${SLACK_TOKEN}" -F channel="alerts-releases" -F text="${message}" https://slack.com/api/chat.postMessage
