@@ -112,58 +112,14 @@ else
   exit 1
 fi
 
-# Send announcement to Zulip
+# Send announcement to Slack
 message="
 Version ${VERSION} of ${GITHUB_REPOSITORY} has been released.
 
 See the [release notes](https://github.com/${GITHUB_REPOSITORY}/releases/tag/${VERSION}) for more details.
 "
-
-curl -s -X POST https://ponylang.zulipchat.com/api/v1/messages \
-  -u "${ZULIP_TOKEN}" \
-  -d "type=stream" \
-  -d "to=announce" \
-  -d "topic=${GITHUB_REPOSITORY}" \
-  -d "content=${message}"
-
-# Update Last Week in Pony
-echo -e "\e[34mAdding release to Last Week in Pony...\e[0m"
-
-result=$(curl https://api.github.com/repos/ponylang/ponylang-website/issues?labels=last-week-in-pony)
-
-lwip_url=$(echo "${result}" | jq -r '.[].url')
-if [ "$lwip_url" != "" ]; then
-  body="
-Version ${VERSION} of ${GITHUB_REPOSITORY} has been released.
-See the [release notes](https://github.com/${GITHUB_REPOSITORY}/releases/tag/${VERSION}) for more details.
-"
-
-  jsontemplate="
-  {
-    \"body\":\$body
-  }
-  "
-
-  json=$(jq -n \
-  --arg body "$body" \
-  "${jsontemplate}")
-
-  result=$(curl -s -X POST "$lwip_url/comments" \
-    -H "Content-Type: application/x-www-form-urlencoded" \
-    -u "${RELEASE_TOKEN}" \
-    --data "${json}")
-
-  rslt_scan=$(echo "${result}" | jq -r '.id')
-  if [ "$rslt_scan" != null ]; then
-    echo -e "\e[34mRelease notice posted to LWIP\e[0m"
-  else
-    echo -e "\e[31mUnable to post to LWIP, here's the curl output..."
-    echo -e "\e[31m${result}\e[0m"
-  fi
-else
-  echo -e "\e[31mUnable to post to Last Week in Pony."
-  echo -e "Can't find the issue.\e[0m"
-fi
+  
+curl -F token="${SLACK_TOKEN}" -F channel="alerts-releases" -F text="${message}" https://slack.com/api/chat.postMessage
 
 # delete announce-VERSION tag
 echo -e "\e[34mDeleting no longer needed remote tag announce-${VERSION}\e[0m"
