@@ -62,10 +62,14 @@ set -o nounset
 
 PUSH_TO="https://${RELEASE_TOKEN}@github.com/${GITHUB_REPOSITORY}.git"
 
+echo -e $GITHUB_REF
+
 # Extract version from tag reference
 # Tag ref version: "refs/tags/release-1.0.0"
 # Version: "1.0.0"
 VERSION="${GITHUB_REF/refs\/tags\/release-/}"
+
+git pull
 
 # Prepare release notes
 echo -e "\e[34mPreparing to update GitHub release notes...\e[0m"
