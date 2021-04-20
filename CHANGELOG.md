@@ -2,17 +2,11 @@
 
 All notable changes to this project will be documented in this file. This project adheres to [Semantic Versioning](http://semver.org/) and [Keep a CHANGELOG](http://keepachangelog.com/).
 
-## [unreleased] - unreleased
+## [1.3.1] - 2021-04-20
 
 ### Fixed
 
 - Fix README ([PR #1](https://github.com/dashdash/release-action/pull/1))
-
-### Added
-
-
-### Changed
-
 
 ## [1.2.8] - 2021-04-20
 
