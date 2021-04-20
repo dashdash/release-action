@@ -6,6 +6,7 @@ All notable changes to this project will be documented in this file. This projec
 
 ### Fixed
 
+- Fix README ([PR #1](https://github.com/dashdash/release-action/pull/1))
 
 ### Added
 
