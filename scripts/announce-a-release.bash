@@ -73,15 +73,17 @@ release_notes=""
 if test -f ".release-notes/next-release.md"; then
   echo -e "\e[34mnext-release.md found. Adding entries to release notes.\e[0m"
   fc=$(<".release-notes/next-release.md")
-  release_notes="${fc}
-
-"
+  echo -e $fc
+  release_notes="${fc}"
 else
   echo -e "\e[34mNo next-release.md found. Only using changelog entries\e[0m"
 fi
 
+echo -e $VERSION
 changelog=$(changelog-tool get "${VERSION}")
+echo -e $changelog
 body="${release_notes}${changelog}"
+echo -e "here"
 
 jsontemplate="
 {
@@ -118,7 +120,7 @@ Version ${VERSION} of ${GITHUB_REPOSITORY} has been released.
 
 See the [release notes](https://github.com/${GITHUB_REPOSITORY}/releases/tag/${VERSION}) for more details.
 "
-  
+
 curl -F token="${SLACK_TOKEN}" -F channel="alerts-releases" -F text="${message}" https://slack.com/api/chat.postMessage
 
 # delete announce-VERSION tag

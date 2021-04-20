@@ -103,7 +103,7 @@ git tag -a "${VERSION}" -m "Version ${VERSION}"
 echo -e "\e[34mPushing commited changes back to ${INPUT_DEFAULT_BRANCH}\e[0m"
 git push "${PUSH_TO}" "${INPUT_DEFAULT_BRANCH}"
 echo -e "\e[34mPushing ${VERSION} tag\e[0m"
-git push "${PUSH_TO}" --tags
+git push "${PUSH_TO}" --tags --force
 
 # pull again, just in case, odds of this being needed are really slim
 git pull
