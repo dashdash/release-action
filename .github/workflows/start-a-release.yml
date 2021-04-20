@@ -13,10 +13,10 @@ jobs:
         with:
           ref: main
       - name: Start
-        uses: ponylang/release-bot-action@0.5.0
+        uses: dashdash/release-action@release-1.2.0
         with:
           step: start-a-release
-          git_user_name: "Ponylang Main Bot"
-          git_user_email: "ponylang.main@gmail.com"
+          git_user_name: "Release Bot"
+          git_user_email: "pedrotavares.dev@gmail.com"
         env:
           RELEASE_TOKEN: ${{ secrets.RELEASE_TOKEN }}
