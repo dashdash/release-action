@@ -20,14 +20,6 @@ jobs:
           git_user_email: "pedrotavares.dev@gmail.com"
         env:
           RELEASE_TOKEN: ${{ secrets.RELEASE_TOKEN }}
-          
-  announce-a-release:
-    name: Announce a release
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-        with:
-          ref: main
       - name: Announce
         uses: dashdash/release-action@1.2.9
         with:
