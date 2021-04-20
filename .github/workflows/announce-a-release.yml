@@ -11,11 +11,11 @@ jobs:
     steps:
       - uses: actions/checkout@v1
       - name: Announce
-        uses: ponylang/release-bot-action@0.5.0
+        uses: dashdash/release-action@1.2.0
         with:
           step: announce-a-release
-          git_user_name: "Ponylang Main Bot"
-          git_user_email: "ponylang.main@gmail.com"
+          git_user_name: "Release Bot"
+          git_user_email: "pedrotavares.dev@gmail.com"
         env:
           RELEASE_TOKEN: ${{ secrets.RELEASE_TOKEN }}
-          ZULIP_TOKEN: ${{ secrets.ZULIP_TOKEN }}
+          SLACK_TOKEN: ${{ secrets.SLACK_TOKEN }}
