@@ -1,5 +1,7 @@
 # Release action
 
+(update)
+
 Multiple workflows are required as part of the standard Pony release process that this bot encompasses. You will need 3 different workflow files.
 
 A release is started by tagging the HEAD commit of a repo with a tag that looks like:
