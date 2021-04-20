@@ -50,8 +50,8 @@ if [[ -z "${RELEASE_TOKEN}" ]]; then
   exit 1
 fi
 
-if [[ -z "${ZULIP_TOKEN}" ]]; then
-  echo -e "\e[31mA Zulip access token needs to be set in ZULIP_TOKEN."
+if [[ -z "${SLACK_TOKEN}" ]]; then
+  echo -e "\e[31mA Slack access token needs to be set in SLACK_TOKEN."
   echo -e "Exiting.\e[0m"
   exit 1
 fi
