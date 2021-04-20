@@ -6,25 +6,13 @@ on:
       - \d+.\d+.\d+
 
 jobs:
-  update-version-in-readme-examples:
-    runs-on: ubuntu-latest
-    name: Update version in README examples
-    steps:
-      - name: Update version in README examples
-        uses: ponylang/readme-version-updater-action@0.3.0
-        with:
-          git_user_name: "Ponylang Main Bot"
-          git_user_email: "ponylang.main@gmail.com"
-        env:
-          API_CREDENTIALS: ${{ secrets.GITHUB_TOKEN }}
-          
   announce-a-release:
     name: Announce a release
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1
       - name: Announce
-        uses: dashdash/release-action@1.2.0
+        uses: dashdash/release-action@1.2.5
         with:
           step: announce-a-release
           git_user_name: "Release Bot"
