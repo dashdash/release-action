@@ -12,7 +12,7 @@ jobs:
     steps:
       - uses: actions/checkout@v1
       - name: Announce
-        uses: dashdash/release-action@1.2.5
+        uses: dashdash/release-action@1.2.6
         with:
           step: announce-a-release
           git_user_name: "Release Bot"
