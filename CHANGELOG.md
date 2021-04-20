@@ -4,7 +4,13 @@ All notable changes to this project will be documented in this file. This projec
 
 ## [1.2.3] - 2021-04-20
 
-## [1.2.3] - 2021-04-20
+### Fixed
+
+- Update version in corral.json on release ([PR #28](https://github.com/ponylang/release-bot-action/pull/28))
+
+### Changed
+
+- Allow for setting the default branch ([PR #24](https://github.com/ponylang/release-bot-action/pull/24))
 
 ## [1.2.2] - 2021-04-20
 
