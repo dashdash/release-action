@@ -12,6 +12,7 @@ All notable changes to this project will be documented in this file. This projec
 
 ### Changed
 
+- Update README.md ([PR #3](https://github.com/dashdash/release-action/pull/3))
 
 ## [2.1.1] - 2021-04-20
 
