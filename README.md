@@ -1,6 +1,6 @@
 # Release action
 
-(update)
+(another update)
 
 Multiple workflows are required as part of the standard Pony release process that this bot encompasses. You will need 3 different workflow files.
 
